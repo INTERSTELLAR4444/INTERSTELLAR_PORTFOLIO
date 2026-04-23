@@ -1,0 +1,261 @@
+:root {
+    --primary: #000000;
+    --secondary:#00d4ff;
+    --disabled:#2f009b;
+    --green:#5b009c;
+    --white:#f9061f;
+    
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    }
+
+    body,
+    html {
+        background: var(--primary);
+        color: var(--white);
+        min-height: 100vh;
+        overflow-x: hidden;
+        transition: all 03s ease;
+    }
+
+    body.no-scroll {
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .main-container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 1rem;
+        margin: 0 auto;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .brand-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-info img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 3px solid rgb(171, 235, 11);
+        box-shadow: 0 0 10px red,
+              0 0 10px red,
+              0 0 10px red,
+              0 0 10px red;
+    }
+
+    .brand-info img:hover {
+        overflow: hidden;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .brand-info h2 {
+        font-size: 2.2rem;
+        font-weight: 800;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+
+    .menu-icon img{
+        width: 55px;
+        height: 40px;
+        object-fit: contain;
+        display: block;
+        font-size: 1rem;
+        cursor: pointer;
+        z-index: 2000;
+        overflow: hidden;
+        border-radius: 41% 4% 41% 40%;
+        box-shadow: 0 0 5px red,
+              0 0 5px red,
+               0 0 5px red,
+              0 0 10px red;
+    }
+
+    .menu-icon img:hover {
+        overflow: hidden;
+         transform: scale(1.1);
+    }
+
+    #overlay {
+        display: none;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1000;
+    }
+
+    #menu-toggle:checked~#overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        top: 7rem;
+        height: 100dvh;
+        background: var(--primary);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 2rem 0;
+        z-index: 1000;
+        transform: translateX(150%);
+        transition: all 0.4s ease;
+    }
+
+    #menu-toggle:checked ~ nav {
+        transform: translateX(0);
+    }
+
+    nav a {
+        text-align: center;
+        padding: 0.8rem;
+        font-size: 1.4rem;
+        border: 5px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--white);
+        opacity: 0;
+        transform: translateX(150%);
+        transition: all 0.4s ease;
+    }
+
+    #menu-toggle:checked ~ nav a {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: calc(var(--i) * 0.2s);
+    }
+
+    .navlink.active {
+        color: var(--green);
+    }
+
+    .content {
+        display: none;
+    }
+
+    .content.active {
+        display: block;
+    }
+
+    @media screen and (min-width:1024px) {
+        .main-container {
+            max-width: 950px;
+        }
+
+        header {
+            position: static;
+        }
+
+        .brand-info {
+            gap: 20px;
+        }
+
+        .brand-info img {
+            width: 90px;
+            height: 90px;
+        }
+
+        .brand-info h2 {
+            font-size: 2.5rem;
+        }
+
+        #menu-toggle {
+            pointer-events: none;
+        }
+
+        .menu-icon img{
+            display: none;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            position: static;
+            transform: translateX(0%);
+        }
+
+        nav a {
+            padding: 0;
+            font-size: 1.5rem;
+            border: none;
+            opacity: 1;
+            transform: translateX(0%);
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+    }
+
+    @media screen and (min-width:1250px) {
+        .main-container {
+            max-width: 1200px;
+        }
+
+        .brand-info {
+            gap: 35px;
+        }
+
+        .brand-info img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .brand-info h2 {
+            font-size: 3rem;
+        }
+
+        nav {
+            gap: 2.5rem;
+        }
+
+        nav a {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 768px){
+
+    .brand-info h2{
+        font-size: 1.5rem;
+    }
+
+    .brand-info img{
+        width: 60px;
+        height: 60px;
+    }
+
+    header{
+        flex-wrap: wrap;
+    }
+
+}

@@ -1,0 +1,263 @@
+#about.content.active {
+    width: 100%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.sidebar h3 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+}
+
+.sidebar p {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    text-align: justify;
+}
+
+.sidebar .tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar .tabs span {
+    border: 2px solid transparent;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 5px;
+    background: var(--secondary);
+    transition: all linear 0.3s;
+}
+
+.sidebar .tabs span:hover {
+    border-color: var(--green);
+    cursor: pointer;
+    color: var(--green);
+    /* box-shadow: 5px 5px 5px var(--green),
+               -5px 5px 5px var(--green),
+               5px -5px 5px var(--green),
+               -5px -5px 5px var(--green); */
+}
+
+.tab.active {
+    border: 2px solid var(--green) !important;
+    color: var(--green);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+aside h2 span {
+    color: var(--green);
+}
+
+.experience-list, 
+.education-list,
+.my-info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    overflow-y: scroll;
+    height: auto;
+    max-height: 300px;
+    padding: 1rem;
+}
+
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    overflow-y: auto;
+    max-height: 300px;
+    padding: 1rem;
+}
+
+
+.experience-list::-webkit-scrollbar,
+.education-list::-webkit-scrollbar,
+.skill-list::-webkit-scrollbar,
+.my-info::-webkit-scrollbar {
+    width: 5px;
+}
+
+.experience-list::-webkit-scrollbar-thumb,
+.education-list::-webkit-scrollbar-thumb,
+.skill-list::-webkit-scrollbar-thumb,
+.my-info::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 10px;
+}
+
+.experience-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border: 2px solid transparent;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--secondary);
+    transition: all linear 0.3s;
+}
+
+.experience-box:hover, .skill-box:hover {
+    border-color: var(--green);
+    box-shadow: 5px 5px 5px var(--green),
+               -5px 5px 5px var(--green),
+               5px -5px 5px var(--green),
+               -5px -5px 5px var(--green);
+}
+
+.experience-box h4 {
+    font-size: 1.4rem;
+}
+
+.experience-box h3 {
+    font-size: 1.3rem;
+    color: var(--green);
+}
+
+.experience-box p {
+    text-align: justify;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.company-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.company-name span {
+    border: 6px solid var(--green);
+    border-radius: 50%;
+}
+
+.company-name p {
+    font-size: 1rem;
+}
+
+.skill-box {
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid var(--disabled);
+    background: var(--disabled);
+    cursor: pointer;
+    transition: all linear 0.3s;
+}
+
+.skill-box img {
+    width: 4rem;
+    height: auto;
+}
+
+.my-info {
+    font-size: 1.3em;
+    font-weight: 800;
+}
+
+.info-box {
+    display: grid;
+}
+
+.info-box span:first-child {
+    color: var(--green);
+}
+
+@media screen and (min-width: 768px) {
+    #about.content.active {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 3rem;
+    }
+
+    .sidebar {
+        grid-column: span 3;
+    }
+
+    .sidebar .tabs {
+        gap: 1.5rem;
+    }
+
+    .tab-content.active {
+        max-width: 100%;
+        margin: 0;
+        grid-column: span 4;
+    }
+
+    aside h2 {
+        font-size: 3rem;
+    }
+
+    aside p {
+        font-size: 1.3rem;
+    }
+
+    .experience-box h3 {
+        font-size: 1.5rem;
+    }
+
+    .company-name p {
+        font-size: 1.2rem;
+    }
+
+    .skill-list {
+        grid-template-columns: repeat(3, 1fr);
+    } 
+
+    .my-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #about.content.active {
+        gap: 5rem;
+    }
+
+    .experience-box h3 {
+        font-size: 1.8rem;
+    }
+}    
+
+@media (max-width: 480px){
+
+    .sidebar{
+        text-align: center;
+        align-items: center;
+    }
+
+    .tab-content.active{
+        align-items: center;
+        text-align: center;
+    }
+
+}
