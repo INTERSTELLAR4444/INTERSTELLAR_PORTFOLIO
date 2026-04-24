@@ -1,7 +1,8 @@
 const toggle = document.getElementById("menu-toggle");
 
 toggle.addEventListener("change", () => {
-  document.body.classList.toggle("no-scroll", toggle.checked);
+  toggle.checked = true;
+  document.body.classList.remove("no-scroll");
 });
 
 const words = [
